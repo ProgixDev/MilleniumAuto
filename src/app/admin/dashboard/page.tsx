@@ -740,7 +740,8 @@ export default function AdminDashboard() {
                       alt="Cover preview"
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src = "";
+                        e.currentTarget.onerror = null; // prevent re-fire loop
+                        e.currentTarget.style.display = "none";
                         e.currentTarget.alt = "Invalid image URL";
                       }}
                     />
@@ -784,7 +785,8 @@ export default function AdminDashboard() {
                           alt={`Gallery ${index + 1}`}
                           className="w-full h-32 object-cover"
                           onError={(e) => {
-                            e.currentTarget.src = "";
+                            e.currentTarget.onerror = null; // prevent re-fire loop
+                            e.currentTarget.style.display = "none";
                             e.currentTarget.alt = "Invalid URL";
                           }}
                         />

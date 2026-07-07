@@ -182,7 +182,10 @@ export default function Cars({}: CarsProps) {
                     className="object-cover"
                     priority={false}
                     onError={(e) => {
-                      e.currentTarget.src = "/voitures/placeholder.jpg";
+                      // Guard: never re-point at the placeholder, or a missing
+                      // fallback would re-fire onError and loop infinitely.
+                      if (e.currentTarget.src.includes("placeholder")) return;
+                      e.currentTarget.src = "/voitures/placeholder.svg";
                     }}
                   />
                   <div
@@ -286,6 +289,10 @@ export default function Cars({}: CarsProps) {
                   alt={`${selectedCar.year} ${selectedCar.make} ${selectedCar.model}`}
                   fill
                   className="object-cover rounded-lg"
+                  onError={(e) => {
+                    if (e.currentTarget.src.includes("placeholder")) return;
+                    e.currentTarget.src = "/voitures/placeholder.svg";
+                  }}
                 />
 
                 {getTotalImages() > 1 && (
