@@ -123,11 +123,11 @@ export default function Cars({}: CarsProps) {
   };
 
   const getCurrentImage = () => {
-    if (!selectedCar) return "/voitures/placeholder.jpg";
+    if (!selectedCar) return "/voitures/placeholder.svg";
     const allImages = selectedCar.coverImage
       ? [selectedCar.coverImage, ...selectedCar.images]
       : selectedCar.images;
-    return allImages[currentImageIndex] || "/voitures/placeholder.jpg";
+    return allImages[currentImageIndex] || "/voitures/placeholder.svg";
   };
 
   const getTotalImages = () => {
@@ -174,7 +174,7 @@ export default function Cars({}: CarsProps) {
                     src={
                       car.coverImage ||
                       car.images[0] ||
-                      "/voitures/placeholder.jpg"
+                      "/voitures/placeholder.svg"
                     }
                     alt={`${car.year} ${car.make} ${car.model}`}
                     fill

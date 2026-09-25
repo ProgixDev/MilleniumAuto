@@ -29,7 +29,7 @@ export default function Footer() {
               Millenium Autos inc
             </h3>
             <p className="mt-3 text-gray-300 text-sm leading-relaxed">
-              Achat et revente de véhicules au Québec. Transparence, simplicité
+              Achat et vente de véhicules au Québec. Transparence, simplicité
               et service humain.
             </p>
           </div>
